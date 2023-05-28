@@ -15,42 +15,42 @@ import Signup from './Pages/SignUp/Signup';
 
 function App() {
   const router = createBrowserRouter([
+
     {
-      element:<Navbars/>,
-      children:[
+      element: <Navbars />,
+      children: [
         {
           path: '/',
-          element: <Home/>
+          element: <Home />
         },
-      
+
         {
           path: "/admin",
-          element: <Admin/>
+          element: <Admin />
         },
         {
           path: "/admincontrol",
-          element: <AdminControl/>
+          element: <AdminControl />
         },
         {
           path: "/blog-details",
-          element: <BlogDetails/>
+          element: <BlogDetails />
         },
-      ],  
+       
+      ],
     },
     {
       path: "/login",
-      element: <Login/>
+      element: <Login />
     },
     {
       path: "/signup",
-      element: <Signup/>
+      element: <Signup />
     },
-
-    
-    ])
+  ])
   return (
     <div>
-     <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </div>
   );
 }

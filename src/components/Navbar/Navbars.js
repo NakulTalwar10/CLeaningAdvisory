@@ -16,6 +16,21 @@ const Navbars = () => {
     localStorage.removeItem('isLoggedIn');
     navigate('/');
   };
+  const handleAdmin=()=>{
+    navigate('/admin')
+  }
+  const handleHome=()=>{
+    navigate('/')
+  }
+  const handleLogin=()=>{
+    navigate('/login')
+  }
+  const handleSignup=()=>{
+    navigate('/signup')
+  }
+  const handleAdminControl=()=>{
+    navigate('/admincontrol')
+  }
 
   return (
     <div>
@@ -33,11 +48,12 @@ const Navbars = () => {
               <Nav className='me-auto my-2 my-lg-0' style={{ maxHeight: '100px' }} navbarScroll>
                 {isAdmin && (
                   <>
-                    <Nav.Link href='/admin' className='font-bold text-xl text-[white] hover:text-[grey]'>
+                    <Nav.Link onClick={handleAdmin} className='font-bold text-xl text-[white] hover:text-[grey]'>
                       Admin
                     </Nav.Link>
+                    
                     <Nav.Link
-                      href='/admincontrol'
+                      onClick={handleAdminControl}
                       className='font-bold text-xl text-[white] hover:text-[grey]'
                     >
                       Admin Control
@@ -45,7 +61,7 @@ const Navbars = () => {
                   </>
                 )}
                 {!isAdmin && (
-                  <Nav.Link href='/' className='font-bold text-xl text-[white] hover:text-[grey]'>
+                  <Nav.Link onClick={handleHome} className='font-bold text-xl text-[white] hover:text-[grey]'>
                     Home
                   </Nav.Link>
                 )}
@@ -53,17 +69,16 @@ const Navbars = () => {
               <Nav className='me-auto my-2 my-lg-0' style={{ maxHeight: '100px' }} navbarScroll>
                 {!isLoggedIn && (
                   <>
-                    <Nav.Link href='/login' className='font-bold text-xl text-[#90e078] hover:text-[#0fb51d] mx-3'>
+                    <Nav.Link onClick={handleLogin} className='font-bold text-xl text-[#90e078] hover:text-[#0fb51d] mx-3'>
                       Login
                     </Nav.Link>
-                    <Nav.Link href='/signup' className='font-bold text-xl text-[#d66868] hover:text-[#a81818] mx-3'>
+                    <Nav.Link onClick={handleSignup} className='font-bold text-xl text-[#d66868] hover:text-[#a81818] mx-3'>
                       Sign Up
                     </Nav.Link>
                   </>
                 )}
                 {isLoggedIn && (
                   <Nav.Link
-                    href='/'
                     className='font-bold text-xl text-[#f07171] hover:text-[#a91919] mx-3'
                     onClick={handleSignOut}
                   >
